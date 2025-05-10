@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Fraud Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Job Fraud Detection</h1>
+        <form method="POST">
+            <label>Job Title:</label>
+            <input type="text" name="job_title" required>
+
+            <label>Description:</label>
+            <textarea name="description" required></textarea>
+
+            <label>Company Profile:</label>
+            <textarea name="company_profile"></textarea>
+
+            <label>Requirements:</label>
+            <textarea name="requirements"></textarea>
+
+            <label>Employment Type:</label>
+            <input type="text" name="employment_type">
+
+            <button type="submit">Check</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Prediction: {{ result }}</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
